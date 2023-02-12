@@ -1,0 +1,74 @@
+
+\documentclass{report}
+
+\include{preamble}
+\include{macros}
+\include{letterfonts}
+
+\usepackage[Glenn]{fncychap}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+\title{\Huge{Solutions to Quantum Mechanics: The Theoretical Minimum}}
+\author{\huge{}}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+\newpage
+\pagebreak
+
+\section*{Lecture 1}
+\qs{(1.1)}
+{
+a) Using the axioms for inner products, prove
+\begin{equation*}
+\{\bra{A} + \bra{B}\}\ket{C} = \braket{A}{C} + \braket{B}{C}.
+\end{equation*}
+b) Prove $ \braket{A}{A} $ is a real number.
+}
+
+\begin{solution}
+a)\\
+Let $\bra{U} = \bra{A} + \bra{B}$, then $\{\bra{A} + \bra{B}\}\ket{C} = \braket{C}{U}^*$ according to the second \textit{inner-product} axiom. From the first \textit{inner-product} axiom the inner-product can be rewritten to:
+\begin{equation*}
+\braket{C}{U}^* \iff [\bra{C}\{\ket{A}+\ket{B}\}]^* \iff [\braket{C}{A}+\braket{C}{B}]^* \iff \braket{C}{A}^* + \braket{C}{B}^*
+\end{equation*}
+By using the second inner-product axiom again, this gives us $\braket{A}{C} + \braket{B}{C}$. \textbf{Q.E.D}!\\\\\\
+b)\\
+From p.30 we know that $\bra{A}$ and $\ket{A}$ can be represented as a column and a row vector respectively:
+\begin{align*}
+\bra{A} &=
+\begin{pmatrix}
+a_1^* a_2^* \cdots a_n^* 
+\end{pmatrix} \\
+\ket{A} &=
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+\vdots \\
+a_n 
+\end{pmatrix}
+\end{align*}
+Where $a_i^*$ denotes the complex conjugate of the scalar. Then $\braket{A}{A}$ is a simple "dot product" as demonstrated on p.31:
+\begin{equation*}
+\braket{A}{A} =
+\begin{pmatrix}
+a_1^* a_2^* \cdots a_n^* 
+\end{pmatrix}
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+\vdots \\
+a_n 
+\end{pmatrix} = a_1^* a_1 + a_2^* a_2 + \cdots + a_n^* a_n
+\end{equation*}
+Let $a_j = \alpha_j + \beta_j i$, then $a_j^* = \alpha_j - \beta_j i$, where $i = \sqrt{-1}$, $a_j$ is a component of $\ket{A}$, and $\alpha_j,\:\beta_j \in \mathbb{R}$.\\
+ It follows that $a_j a_j^* = \alpha_j^2 +\alpha_j \beta_j i - \alpha_j \beta_j i - \beta_j^2 (-1)^2 = \alpha_j^2 + \beta_j^2$. By this we show that a multiplication of a complex scalar with its conjugate gives a \textbf{real} number. Thus the sum, $a_1^* a_1 + a_2^* a_2 + \cdots + a_n^* a_n$ is also a \textbf{real} number. \textbf{Q.E.D}!
+\end{solution}
+
+\end{document}
